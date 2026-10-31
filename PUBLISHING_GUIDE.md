@@ -1,51 +1,41 @@
-# Remote Radar Showcase — review and publishing guide
+# Publication checklist — Remote Radar Showcase
 
-**State:** Private review branch. Public release and deployment are NOT authorized.
+The showcase implementation is on the repository's `main` branch. It is an **isolated code sample**, not a production-code export.
 
-## Repository layout
+## What's already complete
 
-- `main`: private placeholder only.
-- `review/sanitized-showcase`: isolated showcase code, fictional data, documentation and tests.
-- The real `remote-radar-private` repository, its branches, database and Railway deployment are entirely separate.
+- [x] Standalone repository with **fresh Git history**, separate from the private project
+- [x] Fictional records and no live ATS integrations or job submissions
+- [x] Five standard-library regression tests passed during preparation
+- [x] Source-only review for obvious secrets and personal data in the merged files
+- [x] Desktop and mobile layout checked by the project owner
+- [x] Responsive dropdown CSS correction merged via PR #2
 
-Do **not** copy the original repository's history, database, files under `/data`, credentials, application answers, exported resumes or browser profiles into this showcase.
+These checks reduce risk but do not constitute a comprehensive security or accessibility audit.
 
-## Local evaluation
+## Check before changing visibility
 
-1. Clone **this showcase repository**, not the private production repository.
-2. Switch to `review/sanitized-showcase`.
-3. Run `python3 -m unittest discover -s tests -v`.
-4. Run `python3 server.py` and visit `http://127.0.0.1:8765`.
-5. Try searching, filtering, sorting, shortlisting, flagging needs-review, and resetting.
-6. Review on mobile and desktop widths; navigate all controls with a keyboard.
+- [ ] Review all files and **the entire Git history** for personal data, credentials, proprietary material, or secrets
+- [ ] Verify all browser actions work with keyboard, including clear visible focus states
+- [ ] Confirm that the source and README are accurate and don't imply measured external user adoption
+- [ ] Verify only fictional data is served from `/api/jobs`, and POST/PUT/DELETE requests are blocked
+- [ ] Confirm no employer integrations or private production services are called
+- [ ] Obtain explicit approval from the repository owner to change visibility to Public
 
-No Node, third-party packages, accounts, tokens or network access are needed for normal local operation.
+## Make the showcase repository public (owner action)
 
-## Privacy and security checks before release
+1. In the **showcase** repository, open **Settings → General**.
+2. Find **Danger Zone → Change repository visibility**.
+3. Select **Public** and complete the GitHub confirmation steps.
+4. In an incognito browser, confirm the README and repository files are visible without signing in.
+5. Add the public repository URL to the portfolio and relevant Design Engineer applications.
 
-- Inspect the full proposed Git diff and commit history. Confirm that only **synthetic** companies, roles, scores, and statuses are included.
-- Search for secrets, credentials, applicant details, resume content, real contact information, access tokens, production volumes, databases, and private cloud endpoints.
-- Confirm that the server's fixed-path whitelist serves only the three public assets, the health endpoint, and fictional `/api/jobs`.
-- Confirm non-GET actions return 405 and no outbound application submissions or external API calls exist.
-- Review security headers, cross-origin behavior, localStorage use, and HTML escaping.
-- Inspect any new media or brand assets for NDA/copyright concerns.
-- Confirm there is no production volume, secret, job-search history or active job-feed integration.
+This release must **not** change the visibility of `remote-radar-private`.
 
-**Tests are not a full penetration test.** A browser-based usability and accessibility check and human security review are still required.
+## Optional separate deployment
 
-## Publishing, only after explicit approval
+The locally runnable code is independent of the hosted Remote Radar demo. If a dedicated showcase deployment is desired, it needs separate approval, a separate host/volume, and **no shared environment variables, application credentials, or user data**. Test public access and browser interactions after deployment.
 
-1. Review the proposed draft pull request, documentation, code and screenshots.
-2. Authorize merging it into **this showcase repository**, if appropriate.
-3. Authorize changing **this showcase repository only** from Private to Public.
-4. If desired, separately approve deployment to an independent free hosting destination; do not share Railway volumes, environment variables, credentials, or application sessions with production.
-5. Open the deployed page in an unauthenticated browser to verify it works.
-6. Link both the public GitHub repo and the standalone demo from the portfolio and Design Engineer applications.
+## Short portfolio description
 
-Do not claim external user counts, measured conversion outcomes, production React/TypeScript expertise, or that the showcase is a full exported copy of the private app.
-
-## Suggested recruiter description
-
-"Remote Radar is an independent job-discovery product I designed and developed using AI-assisted coding with Claude and Codex. This public code sample is a standalone, read-only implementation of its core discovery, search, filtering, shortlist, and review interactions using fictional data."
-
-Keep the private product and its entire Git history unchanged.
+Remote Radar is an independent job-discovery product I designed and developed through AI-assisted coding with Claude and Codex. This standalone code sample demonstrates discovery, filtering, shortlisting, and human-review UX using fictional data.
