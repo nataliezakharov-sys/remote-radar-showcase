@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7f7">
+  <meta name="description" content="Remote Radar: functional portfolio showcase with fictional data.">
+  <title>Remote Radar — Interactive Showcase</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="logo"><span class="brandicon">◈</span><span>remote<span class="accent">radar</span><span class="dot">.</span></span></div>
+      <p class="eyebrow nav-label">WORKSPACE</p>
+      <nav aria-label="Workspace">
+        <button class="nav active" data-page="discover"><span>◫</span> Discover <span class="counter" id="discover-count">5</span></button>
+        <button class="nav" data-page="shortlist"><span>☆</span> Shortlist <span class="counter" id="shortlist-count">0</span></button>
+        <button class="nav" data-page="review"><span>◇</span> Needs review <span class="counter" id="review-count">0</span></button>
+        <button class="nav" data-page="applications"><span>▤</span> Applications</button>
+      </nav>
+      <div class="sidefoot"><span class="eyebrow">PORTFOLIO MODE</span><p>This showcase uses fictional data. No external integrations or applications are enabled.</p></div>
+    </aside>
+    <main class="main">
+      <div class="topline"><span class="pill"><span class="live-dot"></span> Interactive demo</span><span class="topnote">No sign-in · Fictional data</span></div>
+      <header class="heading"><div><p class="eyebrow">PRODUCT SHOWCASE / 2026</p><h1 id="heading">Discover roles</h1><p id="subtitle">Explore matched opportunities with grounded eligibility and evidence.</p></div><button class="outline small" id="reset">Reset demo</button></header>
+      <div class="notice" role="note"><span>ⓘ</span><div><strong>Safe demonstration environment.</strong> All job postings, companies, scores, and application states are fictional. Actions affect this browser only; no job applications are submitted.</div></div>
+      <section class="stats" aria-label="Overview">
+        <div class="stat"><span>Sample opportunities</span><strong id="total-stat">5</strong><small>Seeded demo records</small></div>
+        <div class="stat"><span>Strong matches</span><strong id="strong-stat">2</strong><small>Based on sample evidence</small></div>
+        <div class="stat"><span>Needs human review</span><strong id="review-stat">1</strong><small>Never auto-apply</small></div>
+      </section>
+      <section class="workspace" aria-label="Job opportunities">
+        <div class="controls"><div class="inputwrap"><label for="search" class="sr-only">Search roles or companies</label><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search roles or companies..."></div><label for="location" class="sr-only">Filter by location</label><select id="location"><option value="all">All locations</option><option value="EMEA">EMEA</option><option value="Global">Global</option><option value="EU">EU only</option></select><label for="order" class="sr-only">Sort results</label><select id="order"><option value="score">Highest match</option><option value="title">Job title A–Z</option></select></div>
+        <div class="workspacebody"><div id="list" class="joblist" aria-live="polite"></div><div id="detail" class="detail"><div class="placeholder">Choose a role to inspect its evidence and limitations.</div></div></div>
+      </section>
+      <footer class="footer">Designed and built through AI-assisted development · <span>Read-only demo, not a live ATS</span></footer>
+    </main>
+  </div>
+</body>
+</html>
